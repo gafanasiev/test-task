@@ -1,3 +1,8 @@
 <p>
   filter-page works!
 </p>
+<app-selected-filters></app-selected-filters>
+<app-checkbox-filter [filters]="filters?.statuses"></app-checkbox-filter>
+<input type="text" [(ngModel)]="filterText">
+<input type="text" [(ngModel)]="filterCategory">
+<button (click)="addFilter(filterCategory, filterText)">Add Filter</button>

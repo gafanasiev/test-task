@@ -1,13 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FilterPageComponent } from './filter-page/filter-page.component';
+import { FilterPageModule } from './filter-page/filter-page.module';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [ FilterPageComponent ],
-  exports: [ FilterPageComponent ]
+  exports: [ FilterPageModule ]
 })
 export class PagesModule {
 }
