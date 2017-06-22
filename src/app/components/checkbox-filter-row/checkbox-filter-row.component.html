@@ -1,4 +1,4 @@
 <div class="container">
-  <span>{{filter.filterObject.name}}</span>
-  <input type="checkbox" [checked]="filter.selected">
+  <span>{{filter.name}}</span>
+  <input type="checkbox" (change)="checkboxChange($event)" [checked]="filter.selected">
 </div>

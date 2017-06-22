@@ -1,7 +1,9 @@
 <ul class="list">
-  <li *ngFor="let filter of filters;">
-    <app-checkbox-filter-row [filter]="filter"></app-checkbox-filter-row>
+  <li *ngFor="let filter of filters | getFiltersWithStatus : selectedFilters;">
+    <app-checkbox-filter-row [filter]="filter"
+                             (onCheckboxChange)="handleCheckboxChange($event)">
+
+    </app-checkbox-filter-row>
   </li>
 </ul>
-CHECKBOX FILTERS:
-{{filters | json}}
+{{selectedFilters | json}}

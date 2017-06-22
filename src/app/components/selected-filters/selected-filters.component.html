@@ -1,3 +1,10 @@
-<p>
-  selected-filters works!
-</p>
+<div class="container panel">
+  <div *ngFor="let filterCategory of filters | objectKeys;" class="item">
+    <h3>{{filterCategory}}</h3>
+      <span
+        *ngFor="let filter of filters[filterCategory];" [ngStyle]="{'color' : filter.selected ? 'blue' : ''}"
+        (click)="removeFilter(filterCategory, filter)">
+        {{filter?.name}},
+      </span>
+  </div>
+</div>

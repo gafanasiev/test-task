@@ -1,8 +1,19 @@
-<p>
-  filter-page works!
-</p>
-<app-selected-filters></app-selected-filters>
-<app-checkbox-filter [filters]="filters?.statuses"></app-checkbox-filter>
-<input type="text" [(ngModel)]="filterText">
-<input type="text" [(ngModel)]="filterCategory">
-<button (click)="addFilter(filterCategory, filterText)">Add Filter</button>
+<div class="main-container">
+  <p>
+    filter-page works!
+  </p>
+  <app-selected-filters *ngIf="!!filters" [filters]="filters"></app-selected-filters>
+  <div class="left-panel">
+    <input type="text" [(ngModel)]="filterText">
+    <input type="text" [(ngModel)]="filterCategory">
+    <button (click)="addFilter(filterCategory, filterText)">Add Filter</button>
+    <app-checkbox-filter
+      [category]="'statuses'"
+      [filters]="checkboxFilters"
+      [selectedFilters]="filters?.statuses"
+      (onCheckboxFilterChange)="handleCheckboxFilterChange($event)">
+
+    </app-checkbox-filter>
+  </div>
+
+</div>

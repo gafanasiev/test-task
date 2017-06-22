@@ -1,0 +1,15 @@
+.panel {
+  width: 100%;
+  padding: 20px;
+  border: 2px solid gainsboro;
+  border-radius: 10px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+
+}

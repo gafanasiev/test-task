@@ -1,12 +1,10 @@
 export class Filter {
-  category: string;
-  filterObject: any;
-  selected: boolean;
+  static instanceCount: number = 0;
+  id: number;
+  name: string;
 
   constructor(obj?: any) {
-    this.category = obj && obj.category || '';
-    this.filterObject = obj && obj.filterObject || null;
-    this.category = obj && obj.selected|| false;
-
+    this.id = Filter.instanceCount++;
+    this.name = obj && obj.name || '';
   }
 }

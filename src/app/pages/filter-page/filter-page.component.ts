@@ -1,5 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { FilterService } from '../../core/core-services/filter.service';
+import { Filter } from '../../models/Filter';
+import { allCheckboxFilters } from '../../../data/allCheckboxFilters';
 
 @Component({
   selector: 'app-filter-page',
@@ -8,7 +10,8 @@ import { FilterService } from '../../core/core-services/filter.service';
   styleUrls: [ './filter-page.component.css' ]
 })
 export class FilterPageComponent implements OnInit {
-  private filters: Object;
+  private filters: any;
+  private checkboxFilters: any = allCheckboxFilters;
 
   constructor(private filterService: FilterService,
               private cd: ChangeDetectorRef) {
@@ -21,14 +24,23 @@ export class FilterPageComponent implements OnInit {
     });
   }
 
-  addFilter(filterCategory: string, text: string) {
-    this.filterService.addFilter({
-      category: filterCategory,
-      selected: false,
-      filterObject: {
-        id: 100,
-        name: text
-      }
+  addFilter(category: string, text: string) {
+    const filter = new Filter({
+      name: text
     });
+    this.filterService.addFilter(category, filter);
+  }
+
+  removeFilter(category: string, filter: Filter) {
+    this.filterService.removeFilter(category, filter);
+  }
+
+  handleCheckboxFilterChange(filterWithCategory: any) {
+    if (filterWithCategory.selected) {
+      this.filterService.addFilter(filterWithCategory.category, filterWithCategory.filter);
+    }
+    else {
+      this.removeFilter(filterWithCategory.category, filterWithCategory.filter)
+    }
   }
 }

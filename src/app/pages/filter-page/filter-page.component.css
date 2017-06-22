@@ -1,0 +1,14 @@
+.main-container {
+  height: 100%;
+  width: 100%;
+}
+
+.left-panel {
+  min-width: 20%;
+  width: 20%;
+  min-height: 100%;
+  height: 100%;
+  padding: 20px;
+  border: 2px solid gainsboro;
+  border-radius: 10px;
+}

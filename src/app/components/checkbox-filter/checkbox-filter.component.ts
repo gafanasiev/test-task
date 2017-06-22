@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Status } from '../../models/Status';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-checkbox-filter',
@@ -8,12 +7,25 @@ import { Status } from '../../models/Status';
 })
 export class CheckboxFilterComponent implements OnInit {
   @Input()
+  private category: string;
+  @Input()
   private filters;
+  @Input()
+  private selectedFilters;
+  @Output()
+  private onCheckboxFilterChange: EventEmitter<Object> = new EventEmitter<Object>();
 
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  handleCheckboxChange(checkboxFilter: Object) {
+    console.log('app-checkbox-filter');
+    console.log(checkboxFilter);
+    const filterWithCategory = Object.assign({}, checkboxFilter, { category: this.category });
+    this.onCheckboxFilterChange.emit(filterWithCategory);
   }
 
 }
