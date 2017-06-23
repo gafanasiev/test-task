@@ -19,7 +19,11 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/mdi/css/materialdesignicons.min.css"
+      ],
+      "addons": [
+        "../node_modules/mdi/fonts/*.+(eot|svg|ttf|woff|woff2)"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

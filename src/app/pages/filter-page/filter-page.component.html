@@ -7,13 +7,27 @@
     <input type="text" [(ngModel)]="filterText">
     <input type="text" [(ngModel)]="filterCategory">
     <button (click)="addFilter(filterCategory, filterText)">Add Filter</button>
+
+
     <app-checkbox-filter
       [category]="'statuses'"
       [filters]="checkboxFilters"
       [selectedFilters]="filters?.statuses"
       (onCheckboxFilterChange)="handleCheckboxFilterChange($event)">
-
     </app-checkbox-filter>
+
+
+    <div>
+      <app-input-filter
+        [category]="'clients'"
+        [selectedFilters]="filters?.clients"
+        (onAdd)="handleClientsFilterAdd($event)">
+      </app-input-filter>
+      <app-autocomplete
+      [query]="filterText"
+      [suggestionsList]="suggestedClients"
+      ></app-autocomplete>
+    </div>
   </div>
 
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@
 import { FilterService } from '../../core/core-services/filter.service';
 import { Filter } from '../../models/Filter';
 import { allCheckboxFilters } from '../../../data/allCheckboxFilters';
+import { suggestedClients } from '../../../data/suggestedClients';
 
 @Component({
   selector: 'app-filter-page',
@@ -12,6 +13,9 @@ import { allCheckboxFilters } from '../../../data/allCheckboxFilters';
 export class FilterPageComponent implements OnInit {
   private filters: any;
   private checkboxFilters: any = allCheckboxFilters;
+  private suggestedClients: any = suggestedClients.map((client) => {
+    return client.name;
+  });
 
   constructor(private filterService: FilterService,
               private cd: ChangeDetectorRef) {
@@ -42,5 +46,12 @@ export class FilterPageComponent implements OnInit {
     else {
       this.removeFilter(filterWithCategory.category, filterWithCategory.filter)
     }
+  }
+
+  handleClientsFilterAdd(filterWithCategory: any) {
+    if (!filterWithCategory) {
+      return;
+    }
+    this.filterService.addFilter(filterWithCategory.category, filterWithCategory.filter);
   }
 }

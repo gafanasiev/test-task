@@ -1,0 +1,20 @@
+<div class="autocomplete-wrapper">
+  <div class="chips-container">
+    <app-chip *ngFor="let person of persons;">
+      {{person.name}}
+    </app-chip>
+    <input class="autocomplete-input" [(ngModel)]="autocompleteInput"
+           (ngModelChange)="onAutocompleteTextChange($event)">
+  </div>
+  <div class="autocomplete-container-wrapper">
+    <div class="autocomplete-container">
+      <div class="autocomplete-list-wrapper">
+        <div class="autocomplete-list">
+          <div class="autocomplete-item" *ngFor="let suggestion of filteredList;">
+            {{suggestion}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

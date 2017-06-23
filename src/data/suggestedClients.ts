@@ -1,0 +1,101 @@
+export const suggestedClients = [ {
+  "name": "Daisey"
+}, {
+  "name": "Nina"
+}, {
+  "name": "Orly"
+}, {
+  "name": "Lauren"
+}, {
+  "name": "Maxie"
+}, {
+  "name": "Alfonso"
+}, {
+  "name": "Tamqrah"
+}, {
+  "name": "Cassondra"
+}, {
+  "name": "Dru"
+}, {
+  "name": "Randene"
+}, {
+  "name": "Andra"
+}, {
+  "name": "Curtis"
+}, {
+  "name": "Quinlan"
+}, {
+  "name": "Lorilee"
+}, {
+  "name": "Georgena"
+}, {
+  "name": "Franklin"
+}, {
+  "name": "Merrie"
+}, {
+  "name": "Blaine"
+}, {
+  "name": "Gothart"
+}, {
+  "name": "Evan"
+}, {
+  "name": "Parry"
+}, {
+  "name": "Luella"
+}, {
+  "name": "Teriann"
+}, {
+  "name": "Shanda"
+}, {
+  "name": "Kynthia"
+}, {
+  "name": "Rennie"
+}, {
+  "name": "Klara"
+}, {
+  "name": "Georgetta"
+}, {
+  "name": "Lon"
+}, {
+  "name": "Josefa"
+}, {
+  "name": "Damiano"
+}, {
+  "name": "Chris"
+}, {
+  "name": "Sada"
+}, {
+  "name": "Luke"
+}, {
+  "name": "Paco"
+}, {
+  "name": "Phillipp"
+}, {
+  "name": "Bentley"
+}, {
+  "name": "Mufi"
+}, {
+  "name": "Norrie"
+}, {
+  "name": "Natalina"
+}, {
+  "name": "Shalne"
+}, {
+  "name": "Jody"
+}, {
+  "name": "Cherry"
+}, {
+  "name": "Gertrudis"
+}, {
+  "name": "Perren"
+}, {
+  "name": "Bale"
+}, {
+  "name": "Ted"
+}, {
+  "name": "Horacio"
+}, {
+  "name": "Herby"
+}, {
+  "name": "Joycelin"
+} ];
