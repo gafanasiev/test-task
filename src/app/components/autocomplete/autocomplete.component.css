@@ -6,6 +6,8 @@
 }
 
 .chips-container {
+  display: flex;
+  flex-wrap: wrap;
   padding: 5px;
 }
 
@@ -15,16 +17,17 @@
 }
 
 .autocomplete-input {
+  flex: auto;
   outline: none;
-  display: inline-block;
   margin: 0;
-  padding: 0;
+  padding: 5px;
   border: 0;
 }
 
 .autocomplete-container {
   position: absolute;
-  background: white;
+  background-color: white;
+  fill: white;
   border-color: gainsboro;
   border-bottom: 1px solid gainsboro;
   border-left: 1px solid gainsboro;
@@ -36,11 +39,10 @@
   max-height: 100px;
   overflow: hidden;
   width: 100%;
+  z-index: 999;
 }
 
 .autocomplete-list-wrapper {
-  padding-left: 5px;
-  padding-right: 5px;
 }
 
 .autocomplete-list {
@@ -56,5 +58,13 @@
 }
 
 .autocomplete-item {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 
+.autocomplete-item:hover {
+  cursor: pointer;
+  background-color: gainsboro;
 }

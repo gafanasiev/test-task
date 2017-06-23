@@ -1,10 +1,7 @@
+import { Filter } from '../app/models/Filter';
 export const allCheckboxFilters = [
-  {
-    id: 0,
-    name: 'Waiting on expert'
-  },
-  {
-    id: 1,
-    name: 'Waiting on client'
-  },
+  new Filter({ name: 'Waiting on expert' }),
+  new Filter({ name: 'Waiting on client' }),
+  new Filter({ name: 'Manual by expert' }),
+  new Filter({ name: 'Manual by client' })
 ];

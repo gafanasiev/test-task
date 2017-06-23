@@ -1,17 +1,24 @@
-<div class="autocomplete-wrapper">
+<div class="autocomplete-wrapper" (click)="handleAutocompleteWrapperClick()">
   <div class="chips-container">
-    <app-chip *ngFor="let person of persons;">
-      {{person.name}}
+    <app-chip
+      *ngFor="let chip of selectedOptions;"
+      (onDeleteClick)="handleChipDelete(chip.value)">
+      {{chip.displayName}}
     </app-chip>
-    <input class="autocomplete-input" [(ngModel)]="autocompleteInput"
-           (ngModelChange)="onAutocompleteTextChange($event)">
+
+    <input class="autocomplete-input"
+           #autocompleteInput
+           (keyup)="handleAutocompleteTextChange(autocompleteInput.value)">
   </div>
   <div class="autocomplete-container-wrapper">
     <div class="autocomplete-container">
       <div class="autocomplete-list-wrapper">
-        <div class="autocomplete-list">
-          <div class="autocomplete-item" *ngFor="let suggestion of filteredList;">
-            {{suggestion}}
+        <div class="autocomplete-list"
+             *ngIf="isSuggestionsListVisible">
+          <div class="autocomplete-item"
+               *ngFor="let option of filteredList;"
+               (click)="handleSuggestedItemClick(option.value)">
+            {{option.displayName}}
           </div>
         </div>
       </div>

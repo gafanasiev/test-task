@@ -1,85 +1,78 @@
 import {
-  Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange, HostBinding,
-  ElementRef
+  Component, OnInit, Input, ElementRef, ViewChildren, EventEmitter, Output
 } from '@angular/core';
+import { IOption } from '../../models/IOption';
+import { Filter } from '../../models/Filter';
 
 @Component({
   selector: 'app-autocomplete',
   templateUrl: './autocomplete.component.html',
-  styleUrls: [ './autocomplete.component.css' ]
+  styleUrls: [ './autocomplete.component.css' ],
+  host: {
+    '(document:click)': 'handleClick($event)',
+  },
 })
-export class AutocompleteComponent implements OnInit, OnChanges {
+export class AutocompleteComponent implements OnInit {
   @Input()
-  private suggestionsList: any [];
-  @Input()
-  private visible: boolean = false;
-  @Input()
-  private query: string;
+  private optionsList: IOption [];
 
-  private filteredList: any [];
-  private persons = [ {
-    "name": "Daisey"
-  }, {
-    "name": "Nina"
-  }, {
-    "name": "Orly"
-  }, {
-    "name": "Lauren"
-  }, {
-    "name": "Maxie"
-  }, {
-    "name": "Alfonso"
-  }, {
-    "name": "Tamqrah"
-  }, {
-    "name": "Cassondra"
-  }, {
-    "name": "Dru"
-  }, {
-    "name": "Randene"
-  }, {
-    "name": "Andra"
-  }, {
-    "name": "Curtis"
-  }, {
-    "name": "Quinlan"
-  }, {
-    "name": "Lorilee"
-  }, {
-    "name": "Georgena"
-  } ];
+  @Input()
+  private selectedOptions: IOption [];
+
+  @Output()
+  private onSuggestedItemClick: EventEmitter<any> = new EventEmitter<any>();
+
+  @Output()
+  private onChipDelete: EventEmitter<any> = new EventEmitter<any>();
+
+  @ViewChildren('autocompleteInput')
+  private autocompleteInput;
+
+  private isSuggestionsListVisible: boolean;
+  private filteredList: IOption [];
 
   constructor(private elementRef: ElementRef) {
   }
 
   ngOnInit() {
-
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.onQueryChange(changes.query);
-  }
-
-  onQueryChange(query: SimpleChange) {
-    const currentValue = query.currentValue;
-    if (!(currentValue !== query.previousValue)) {
-      return;
-    }
-    this.filterByQuery(currentValue);
+    this.filteredList = this.optionsList;
   }
 
   filterByQuery(query: string) {
     if (query !== "") {
-      this.filteredList = this.suggestionsList.filter((element) => {
-        return element.toLowerCase().indexOf(query.toLowerCase()) > -1;
+      this.filteredList = this.optionsList.filter((option) => {
+        return option.displayName.toLowerCase().indexOf(query.toLowerCase()) > -1;
       });
-      console.log(this.filteredList);
     } else {
-      this.filteredList = [];
+      this.filteredList = this.optionsList;
     }
   }
 
-  onAutocompleteTextChange(newText: string) {
+  handleAutocompleteTextChange(newText: string) {
     this.filterByQuery(newText);
+  }
+
+  handleAutocompleteWrapperClick() {
+    this.autocompleteInput.first.nativeElement.focus();
+  }
+
+  handleSuggestedItemClick(selectedItemValue: any) {
+    this.onSuggestedItemClick.emit(selectedItemValue);
+  }
+
+  handleChipDelete(chipValue: any) {
+    this.onChipDelete.emit(chipValue);
+  }
+
+  handleClick(event) {
+    var clickedComponent = event.target;
+    var isClickHappendInsideElement = false;
+    do {
+      if (clickedComponent === this.elementRef.nativeElement) {
+        isClickHappendInsideElement = true;
+      }
+      clickedComponent = clickedComponent.parentNode;
+    } while (clickedComponent);
+    this.isSuggestionsListVisible = isClickHappendInsideElement;
   }
 }

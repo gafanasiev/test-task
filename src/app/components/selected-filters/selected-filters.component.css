@@ -1,8 +1,8 @@
 .panel {
-  width: 100%;
-  padding: 20px;
+  padding: 10px;
   border: 2px solid gainsboro;
   border-radius: 10px;
+  min-width: 200px;
 }
 
 .container {
@@ -10,6 +10,10 @@
   flex-wrap: wrap;
 }
 
-.item {
+.category-name {
+  font-weight: bold;
+}
 
+.item {
+  margin-left: 20px;
 }

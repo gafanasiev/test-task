@@ -4,11 +4,6 @@
   </p>
   <app-selected-filters *ngIf="!!filters" [filters]="filters"></app-selected-filters>
   <div class="left-panel">
-    <input type="text" [(ngModel)]="filterText">
-    <input type="text" [(ngModel)]="filterCategory">
-    <button (click)="addFilter(filterCategory, filterText)">Add Filter</button>
-
-
     <app-checkbox-filter
       [category]="'statuses'"
       [filters]="checkboxFilters"
@@ -16,18 +11,13 @@
       (onCheckboxFilterChange)="handleCheckboxFilterChange($event)">
     </app-checkbox-filter>
 
-
     <div>
-      <app-input-filter
-        [category]="'clients'"
-        [selectedFilters]="filters?.clients"
-        (onAdd)="handleClientsFilterAdd($event)">
-      </app-input-filter>
       <app-autocomplete
-      [query]="filterText"
-      [suggestionsList]="suggestedClients"
-      ></app-autocomplete>
+        (onSuggestedItemClick)="addFilter('clients', $event)"
+        [selectedOptions]="selectedClients"
+        (onChipDelete)="removeFilter('clients', $event)"
+        [optionsList]="suggestedClients">
+      </app-autocomplete>
     </div>
   </div>
-
 </div>

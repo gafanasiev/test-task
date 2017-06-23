@@ -22,8 +22,6 @@ export class CheckboxFilterComponent implements OnInit {
   }
 
   handleCheckboxChange(checkboxFilter: Object) {
-    console.log('app-checkbox-filter');
-    console.log(checkboxFilter);
     const filterWithCategory = Object.assign({}, checkboxFilter, { category: this.category });
     this.onCheckboxFilterChange.emit(filterWithCategory);
   }

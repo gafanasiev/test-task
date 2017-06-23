@@ -40,7 +40,7 @@ export class FilterService {
     this.filters.next(newFilters);
   }
 
-  getFilters(): Observable<Object> {
+  getFilters(): Observable<any> {
     return this.filters.asObservable();
   }
 }

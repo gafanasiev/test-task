@@ -15,7 +15,6 @@ export class CheckboxFilterRowComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.filter);
   }
 
   checkboxChange(event) {
