@@ -1,10 +1,10 @@
 <div class="container panel">
-  <div *ngFor="let filterCategory of filters | objectKeys;" class="item">
-    <div *ngIf="filters[filterCategory].length > 0">
-      <span class="category-name">{{filterCategory}}:</span>
+  <div *ngFor="let category of filters | objectKeys;" class="item">
+    <div *ngIf="filters[category].length > 0">
+      <span class="category-name">{{category}}:</span>
       <app-chip
-        *ngFor="let filter of filters[filterCategory];" [ngStyle]="{'color' : filter.selected ? 'blue' : ''}"
-        (onDeleteClick)="removeFilter(filterCategory, filter)">
+        *ngFor="let filter of filters[category];" [ngStyle]="{'color' : filter.selected ? 'blue' : ''}"
+        (onDeleteClick)="handleDeleteFilterClick(category, filter)">
         {{filter?.name}}
       </app-chip>
     </div>

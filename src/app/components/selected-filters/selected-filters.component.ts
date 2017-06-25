@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FilterService } from '../../core/core-services/filter.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Filter } from '../../models/Filter';
 
 @Component({
@@ -9,13 +8,19 @@ import { Filter } from '../../models/Filter';
 })
 export class SelectedFiltersComponent implements OnInit {
   @Input()
-  private filters: Object;
+  private filters: any;
 
-  constructor(private filterService: FilterService) {
+  @Output()
+  private onDeleteFilterClick: EventEmitter <any> = new EventEmitter<any>();
+
+  constructor() {
   }
 
-  removeFilter(category: string, filter: Filter) {
-    this.filterService.removeFilter(category, filter);
+  handleDeleteFilterClick(category: string, filter: Filter) {
+    this.onDeleteFilterClick.emit({
+      category: category,
+      filter: filter
+    });
   }
 
   ngOnInit() {

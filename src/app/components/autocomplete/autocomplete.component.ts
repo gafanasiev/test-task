@@ -2,7 +2,6 @@ import {
   Component, OnInit, Input, ElementRef, ViewChildren, EventEmitter, Output
 } from '@angular/core';
 import { IOption } from '../../models/IOption';
-import { Filter } from '../../models/Filter';
 
 @Component({
   selector: 'app-autocomplete',

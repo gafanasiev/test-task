@@ -2,7 +2,10 @@
   <p>
     filter-page works!
   </p>
-  <app-selected-filters *ngIf="!!filters" [filters]="filters"></app-selected-filters>
+  <app-selected-filters
+    *ngIf="!!filters" [filters]="filters"
+    (onDeleteFilterClick)="removeFilter($event.category, $event.filter)">
+  </app-selected-filters>
   <div class="left-panel">
     <app-checkbox-filter
       [filters]="checkboxFilters"
