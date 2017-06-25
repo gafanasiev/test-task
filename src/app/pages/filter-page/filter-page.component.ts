@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { FilterService } from '../../core/core-services/filter.service';
+import { FilterService } from '../../services/filter.service';
 import { Filter } from '../../models/Filter';
 import { allCheckboxFilters } from '../../../data/allCheckboxFilters';
 import { suggestedClients } from '../../../data/suggestedClients';

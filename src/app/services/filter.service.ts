@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Filter } from '../../models/Filter';
+import { Filter } from '../models/Filter';
 import { BehaviorSubject, Observable } from 'rxjs/Rx';
-import { initialFilters } from '../../../data/initialFilters';
-import { isNgTemplate } from '@angular/compiler/compiler';
+import { initialFilters } from '../../data/initialFilters';
 
 @Injectable()
 export class FilterService {
