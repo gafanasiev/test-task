@@ -60,12 +60,13 @@ export class FilterPageComponent implements OnInit {
     });
   }
 
-  handleCheckboxFilterChange(filterWithCategory: any) {
-    if (filterWithCategory.selected) {
-      this.filterService.addFilter(filterWithCategory.category, filterWithCategory.filter);
+  handleCheckboxFilterChange(category: string, selectedFilter: any) {
+    debugger;
+    if (selectedFilter.selected) {
+      this.filterService.addFilter(category, selectedFilter.filter);
     }
     else {
-      this.removeFilter(filterWithCategory.category, filterWithCategory.filter)
+      this.removeFilter(category, selectedFilter.filter)
     }
   }
 }

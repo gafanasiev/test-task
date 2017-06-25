@@ -5,10 +5,9 @@
   <app-selected-filters *ngIf="!!filters" [filters]="filters"></app-selected-filters>
   <div class="left-panel">
     <app-checkbox-filter
-      [category]="'statuses'"
       [filters]="checkboxFilters"
       [selectedFilters]="filters?.statuses"
-      (onCheckboxFilterChange)="handleCheckboxFilterChange($event)">
+      (onCheckboxFilterChange)="handleCheckboxFilterChange('statuses', $event)">
     </app-checkbox-filter>
 
     <div>

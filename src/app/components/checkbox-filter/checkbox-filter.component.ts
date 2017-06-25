@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Filter } from '../../models/Filter';
 
 @Component({
   selector: 'app-checkbox-filter',
@@ -7,13 +8,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CheckboxFilterComponent implements OnInit {
   @Input()
-  private category: string;
-  @Input()
   private filters;
   @Input()
   private selectedFilters;
   @Output()
-  private onCheckboxFilterChange: EventEmitter<Object> = new EventEmitter<Object>();
+  private onCheckboxFilterChange: EventEmitter<Filter> = new EventEmitter<Filter>();
 
   constructor() {
   }
@@ -21,9 +20,8 @@ export class CheckboxFilterComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleCheckboxChange(checkboxFilter: Object) {
-    const filterWithCategory = Object.assign({}, checkboxFilter, { category: this.category });
-    this.onCheckboxFilterChange.emit(filterWithCategory);
+  handleCheckboxChange(checkboxFilter: Filter) {
+    this.onCheckboxFilterChange.emit(checkboxFilter);
   }
 
 }

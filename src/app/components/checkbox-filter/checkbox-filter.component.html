@@ -2,7 +2,6 @@
   <li *ngFor="let filter of filters | getFiltersWithStatus : selectedFilters;">
     <app-checkbox-filter-row [filter]="filter"
                              (onCheckboxChange)="handleCheckboxChange($event)">
-
     </app-checkbox-filter-row>
   </li>
 </ul>
