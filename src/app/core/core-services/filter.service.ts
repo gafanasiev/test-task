@@ -10,7 +10,6 @@ export class FilterService {
 
   constructor() {
     this.filters = new BehaviorSubject<Object>(initialFilters);
-
   }
 
   addFilter(category: string, filter: Filter) {

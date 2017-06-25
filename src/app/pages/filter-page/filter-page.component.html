@@ -1,25 +1,30 @@
 <div class="main-container">
-  <p>
-    filter-page works!
-  </p>
-  <app-selected-filters
-    *ngIf="!!filters" [filters]="filters"
-    (onDeleteFilterClick)="removeFilter($event.category, $event.filter)">
-  </app-selected-filters>
+  <h3>{{title}}</h3>
+  <div class="top-panel">
+    <app-selected-filters
+      *ngIf="!!filters" [filters]="filters"
+      (onDeleteFilterClick)="removeFilter($event.category, $event.filter)">
+    </app-selected-filters>
+  </div>
   <div class="left-panel">
-    <app-checkbox-filter
-      [filters]="checkboxFilters"
-      [selectedFilters]="filters?.statuses"
-      (onCheckboxFilterChange)="handleCheckboxFilterChange('statuses', $event)">
-    </app-checkbox-filter>
-
-    <div>
+    <span>STATUSES</span>
+    <app-collapsible>
+      <app-checkbox-filter
+        [filters]="checkboxFilters"
+        [selectedFilters]="filters?.statuses"
+        (onCheckboxFilterChange)="handleCheckboxFilterChange('statuses', $event)">
+      </app-checkbox-filter>
+    </app-collapsible>
+    <hr>
+    <span>CLIENTS</span>
+    <app-collapsible>
       <app-autocomplete
         (onSuggestedItemClick)="addFilter('clients', $event)"
         [selectedOptions]="selectedClients"
         (onChipDelete)="removeFilter('clients', $event)"
         [optionsList]="suggestedClients">
       </app-autocomplete>
-    </div>
+    </app-collapsible>
+
   </div>
 </div>

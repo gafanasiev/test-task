@@ -12,6 +12,7 @@ import { IOption } from '../../models/IOption';
   styleUrls: [ './filter-page.component.css' ]
 })
 export class FilterPageComponent implements OnInit {
+  private title: string = 'Scheduling details';
   private filters: any;
   private selectedClients: IOption[];
   private checkboxFilters: any = allCheckboxFilters;

@@ -1,6 +1,10 @@
 .main-container {
 }
 
+.top-panel {
+  margin-bottom: 20px;
+}
+
 .left-panel {
   min-width: 200px;
   width: 20%;

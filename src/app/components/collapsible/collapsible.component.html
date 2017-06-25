@@ -1,0 +1,5 @@
+<i (click)="toggleCollapsible()"
+   class="collapsible-button mdi" [ngClass]="collapsibleButtonClass"></i>
+<div [@visibilityState]="animationState">
+  <ng-content></ng-content>
+</div>
