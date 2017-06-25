@@ -49,6 +49,10 @@ export class FilterPageComponent implements OnInit {
     this.filterService.removeFilter(category, filter);
   }
 
+  clearFilterCategory(category: string) {
+    this.filterService.clearFilterCategory(category);
+  }
+
   mapFiltersToOptions(filters: Filter[]): IOption[] {
     if (!filters) {
       return;

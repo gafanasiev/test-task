@@ -7,8 +7,7 @@
     </app-selected-filters>
   </div>
   <div class="left-panel">
-    <span>STATUSES</span>
-    <app-collapsible>
+    <app-collapsible [header]="'STATUSES'" (onClearClick)="clearFilterCategory('statuses')">
       <app-checkbox-filter
         [filters]="checkboxFilters"
         [selectedFilters]="filters?.statuses"
@@ -16,8 +15,7 @@
       </app-checkbox-filter>
     </app-collapsible>
     <hr>
-    <span>CLIENTS</span>
-    <app-collapsible>
+    <app-collapsible [header]="'CLIENTS'" (onClearClick)="clearFilterCategory('clients')">
       <app-autocomplete
         (onSuggestedItemClick)="addFilter('clients', $event)"
         [selectedOptions]="selectedClients"

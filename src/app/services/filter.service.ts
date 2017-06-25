@@ -38,6 +38,16 @@ export class FilterService {
     this.filters.next(newFilters);
   }
 
+  clearFilterCategory(category: string) {
+    const newFilters = Object.assign({}, this.filters.getValue());
+    let newFiltersByCategory = newFilters[ category ];
+    if (!category) {
+      return;
+    }
+    newFilters[ category ] = [];
+    this.filters.next(newFilters);
+  }
+
   getFilters(): Observable<any> {
     return this.filters.asObservable();
   }

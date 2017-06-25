@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {
   trigger,
   state,
@@ -24,6 +24,10 @@ import {
   ]
 })
 export class CollapsibleComponent implements OnInit {
+  @Input()
+  private header: string;
+  @Output()
+  private onClearClick: EventEmitter<void> = new EventEmitter<void>();
   private animationState: string = 'opened';
   private collapsibleButtonClass: any;
 
@@ -44,5 +48,9 @@ export class CollapsibleComponent implements OnInit {
   toggleCollapsible() {
     this.animationState = this.animationState === 'opened' ? 'closed' : 'opened';
     this.updateCollapsibleButtonClass();
+  }
+
+  handleClearClick() {
+    this.onClearClick.emit();
   }
 }

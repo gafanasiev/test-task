@@ -1,5 +1,15 @@
-<i (click)="toggleCollapsible()"
-   class="collapsible-button mdi" [ngClass]="collapsibleButtonClass"></i>
+<div class="header-wrapper">
+  <div><span>{{header}}</span>
+    <i (click)="toggleCollapsible()"
+       class="button mdi" [ngClass]="collapsibleButtonClass">
+    </i>
+  </div>
+  <div class="clear-button">
+    Clear
+    <i (click)="handleClearClick()"
+       class="button mdi mdi-close-circle"></i>
+  </div>
+</div>
 <div [@visibilityState]="animationState">
   <ng-content></ng-content>
 </div>

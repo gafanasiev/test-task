@@ -1,4 +1,16 @@
+.clear-button {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px;
+}
 
-.collapsible-button {
+.button {
   cursor: pointer;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
