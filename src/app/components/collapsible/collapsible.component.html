@@ -1,13 +1,13 @@
 <div class="header-wrapper">
-  <div><span>{{header}}</span>
+  <div>
+    <span class="bold-text">{{header | uppercase}}</span>
     <i (click)="toggleCollapsible()"
        class="button mdi" [ngClass]="collapsibleButtonClass">
     </i>
   </div>
-  <div class="clear-button">
+  <div class="clear-button button" (click)="handleClearClick()">
     Clear
-    <i (click)="handleClearClick()"
-       class="button mdi mdi-close-circle"></i>
+    <i class="mdi mdi-close-circle"></i>
   </div>
 </div>
 <div [@visibilityState]="animationState">

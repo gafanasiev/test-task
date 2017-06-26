@@ -1,0 +1,32 @@
+<div class="card-wrapper">
+  <div class="status-wrapper" [ngStyle]="statusBarColor">
+    <div>
+      <i class="mdi mdi-phone"></i>
+      {{status}}
+    </div>
+    <div>{{date | date : 'yMd'}}</div>
+  </div>
+  <div class="content-wrapper">
+    <div class="bold-text info-line">
+      {{projectName}}
+      <i class="mdi mdi-information"></i>
+    </div>
+    <div class="role-label info-line">
+      {{expertRole | uppercase}}({{expertRegion | uppercase}})
+    </div>
+    <div class=" info-line">
+      <i class="mdi mdi-circle" [ngStyle]="statusIconColor"></i>
+      <span class="bold-text">{{expertName}}</span>
+    </div>
+
+    <div class="role-label info-line">
+      {{clientRole | uppercase}}({{clientRegion | uppercase}})
+    </div>
+    <div class="bold-text info-line">
+      {{clientName}}
+    </div>
+    <div class="company-name info-line">
+      {{clientCompanyName}}
+    </div>
+  </div>
+</div>

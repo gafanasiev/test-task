@@ -1,13 +1,13 @@
-<div class="main-container">
-  <h3>{{title}}</h3>
-  <div class="top-panel">
-    <app-selected-filters
-      *ngIf="!!filters" [filters]="filters"
-      (onDeleteFilterClick)="removeFilter($event.category, $event.filter)">
-    </app-selected-filters>
-  </div>
+<h3>{{title}}</h3>
+<div class="top-panel">
+  <app-selected-filters
+    *ngIf="!!filters" [filters]="filters"
+    (onDeleteFilterClick)="removeFilter($event.category, $event.filter)">
+  </app-selected-filters>
+</div>
+<div class="panel-container">
   <div class="left-panel">
-    <app-collapsible [header]="'STATUSES'" (onClearClick)="clearFilterCategory('statuses')">
+    <app-collapsible [header]="'statuses'" (onClearClick)="clearFilterCategory('statuses')">
       <app-checkbox-filter
         [filters]="checkboxFilters"
         [selectedFilters]="filters?.statuses"
@@ -15,7 +15,7 @@
       </app-checkbox-filter>
     </app-collapsible>
     <hr>
-    <app-collapsible [header]="'CLIENTS'" (onClearClick)="clearFilterCategory('clients')">
+    <app-collapsible [header]="'clients'" (onClearClick)="clearFilterCategory('clients')">
       <app-autocomplete
         (onSuggestedItemClick)="addFilter('clients', $event)"
         [selectedOptions]="selectedClients"
@@ -23,6 +23,10 @@
         [optionsList]="suggestedClients">
       </app-autocomplete>
     </app-collapsible>
+  </div>
+  <div class="right-panel">
+    <app-details-card>
 
+    </app-details-card>
   </div>
 </div>

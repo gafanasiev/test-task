@@ -1,0 +1,36 @@
+.card-wrapper {
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border: 1px solid gainsboro;
+  overflow: hidden;
+  min-width: 400px;
+}
+
+.status-wrapper {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  background-color: forestgreen;
+  padding: 10px;
+}
+
+.content-wrapper {
+  padding: 5px;
+}
+
+.role-label {
+  color: lightcoral;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.company-name {
+  color: grey;
+}
+
+.info-line {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

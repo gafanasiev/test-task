@@ -8,10 +8,29 @@ import { PipesModule } from '../pipes/pipes.module';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ChipComponent } from './chip/chip.component';
 import { CollapsibleComponent } from './collapsible/collapsible.component';
+import { DetailsCardComponent } from './details-card/details-card.component';
 @NgModule({
-  imports: [ CommonModule, PipesModule, FormsModule ],
-  declarations: [ SelectedFiltersComponent, CheckboxFilterRowComponent, CheckboxFilterComponent, AutocompleteComponent, ChipComponent, CollapsibleComponent ],
-  exports: [ SelectedFiltersComponent, CheckboxFilterComponent, AutocompleteComponent, ChipComponent, CollapsibleComponent ]
+  imports: [
+    CommonModule,
+    PipesModule,
+    FormsModule ],
+  declarations: [
+    SelectedFiltersComponent,
+    CheckboxFilterRowComponent,
+    CheckboxFilterComponent,
+    AutocompleteComponent,
+    ChipComponent,
+    CollapsibleComponent,
+    DetailsCardComponent
+  ],
+  exports: [
+    SelectedFiltersComponent,
+    CheckboxFilterComponent,
+    AutocompleteComponent,
+    ChipComponent,
+    CollapsibleComponent,
+    DetailsCardComponent
+  ]
 })
 export class ComponentsModule {
 
