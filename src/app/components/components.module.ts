@@ -9,6 +9,7 @@ import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ChipComponent } from './chip/chip.component';
 import { CollapsibleComponent } from './collapsible/collapsible.component';
 import { DetailsCardComponent } from './details-card/details-card.component';
+import { DetailsCardListComponent } from './details-card-list/details-card-list.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -21,7 +22,8 @@ import { DetailsCardComponent } from './details-card/details-card.component';
     AutocompleteComponent,
     ChipComponent,
     CollapsibleComponent,
-    DetailsCardComponent
+    DetailsCardComponent,
+    DetailsCardListComponent
   ],
   exports: [
     SelectedFiltersComponent,
@@ -29,7 +31,8 @@ import { DetailsCardComponent } from './details-card/details-card.component';
     AutocompleteComponent,
     ChipComponent,
     CollapsibleComponent,
-    DetailsCardComponent
+    DetailsCardComponent,
+    DetailsCardListComponent
   ]
 })
 export class ComponentsModule {

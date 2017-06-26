@@ -2,31 +2,31 @@
   <div class="status-wrapper" [ngStyle]="statusBarColor">
     <div>
       <i class="mdi mdi-phone"></i>
-      {{status}}
+      {{info.status}}
     </div>
-    <div>{{date | date : 'yMd'}}</div>
+    <div>{{info.date | date : 'yMd'}}</div>
   </div>
   <div class="content-wrapper">
     <div class="bold-text info-line">
-      {{projectName}}
+      {{info.projectName}}
       <i class="mdi mdi-information"></i>
     </div>
     <div class="role-label info-line">
-      {{expertRole | uppercase}}({{expertRegion | uppercase}})
+      {{info.expert.role | uppercase}}({{info.expert.region.name | uppercase}})
     </div>
     <div class=" info-line">
       <i class="mdi mdi-circle" [ngStyle]="statusIconColor"></i>
-      <span class="bold-text">{{expertName}}</span>
+      <span class="bold-text">{{info.expert.name}}</span>
     </div>
 
     <div class="role-label info-line">
-      {{clientRole | uppercase}}({{clientRegion | uppercase}})
+      {{info.client.role | uppercase}}({{info.client.region.name | uppercase}})
     </div>
     <div class="bold-text info-line">
-      {{clientName}}
+      {{info.client.name}}
     </div>
     <div class="company-name info-line">
-      {{clientCompanyName}}
+      {{info.client.companyName}}
     </div>
   </div>
 </div>

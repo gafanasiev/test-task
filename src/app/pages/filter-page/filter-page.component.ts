@@ -3,6 +3,7 @@ import { FilterService } from '../../services/filter.service';
 import { Filter } from '../../models/Filter';
 import { allCheckboxFilters } from '../../../data/allCheckboxFilters';
 import { suggestedClients } from '../../../data/suggestedClients';
+import { detailCards } from '../../../data/detailCards';
 import { IOption } from '../../models/IOption';
 
 @Component({
@@ -19,9 +20,10 @@ export class FilterPageComponent implements OnInit {
   private suggestedClients: any = suggestedClients.map((client) => {
     return {
       displayName: client.name,
-      value: new Filter({ name: client.name })
+      value: client
     }
   });
+  private detailCards = detailCards;
 
   constructor(private filterService: FilterService,
               private cd: ChangeDetectorRef) {
@@ -66,7 +68,6 @@ export class FilterPageComponent implements OnInit {
   }
 
   handleCheckboxFilterChange(category: string, selectedFilter: any) {
-    debugger;
     if (selectedFilter.selected) {
       this.filterService.addFilter(category, selectedFilter.filter);
     }

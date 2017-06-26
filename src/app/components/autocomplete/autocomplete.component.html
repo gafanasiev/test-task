@@ -12,14 +12,12 @@
   </div>
   <div class="autocomplete-container-wrapper">
     <div class="autocomplete-container">
-      <div class="autocomplete-list-wrapper">
-        <div class="autocomplete-list"
-             *ngIf="isSuggestionsListVisible">
-          <div class="autocomplete-item"
-               *ngFor="let option of filteredList;"
-               (click)="handleSuggestedItemClick(option.value)">
-            {{option.displayName}}
-          </div>
+      <div class="autocomplete-list"
+           *ngIf="isSuggestionsListVisible">
+        <div class="autocomplete-item"
+             *ngFor="let option of filteredList;"
+             (click)="handleSuggestedItemClick(option.value)">
+          {{option.displayName}}
         </div>
       </div>
     </div>

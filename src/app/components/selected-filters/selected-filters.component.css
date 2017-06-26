@@ -1,11 +1,8 @@
-.panel {
+.container-wrapper {
   padding: 10px;
   border: 2px solid gainsboro;
   border-radius: 10px;
   min-width: 200px;
-}
-
-.container {
   display: flex;
   flex-wrap: wrap;
 }

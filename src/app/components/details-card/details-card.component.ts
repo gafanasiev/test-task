@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CardInfo } from '../../models/Card';
 
 @Component({
   selector: 'app-details-card',
@@ -6,17 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: [ './details-card.component.css' ]
 })
 export class DetailsCardComponent implements OnInit {
-  private status: string = 'Ready to Schedule - Manual Scheduling';
-  private date: Date = new Date();
-  private projectName: string = 'New Project';
-  private expertName: string = 'Mikhail Kuznetsov';
-  private expertRole: string = 'expert';
-  private expertRegion: string = 'EMEA';
-
-  private clientRole: string = 'client';
-  private clientRegion: string = 'AMERICAS';
-  private clientName: string = 'Nikita Reshetnikov';
-  private clientCompanyName: string = 'Client Company Name';
+  @Input()
+  private info: CardInfo;
 
   private statusIconColor: any = {};
   private statusBarColor: any = {};
@@ -25,7 +17,7 @@ export class DetailsCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.updateStatus('disqualified');
+    this.updateStatus(this.info.status);
   }
 
   updateStatus(status: string) {
